@@ -22,12 +22,12 @@ public class Main {
 //            System.out.println("Enter time for ride " + (i + 1) + " in minutes:");
 //            double time = sc.nextDouble();
 //
-//            rides.add(new Ride(distance, time));
+//            rides.add(new Ride(distance, time, CabInvoiceGenerator.RideType.NORMAL));
 //        }
 //
 //        double totalFare = generator.calculateTotalFareForMultipleRides(rides);
 //        System.out.println("Total Fare for all rides: Rs. " + totalFare);
-
+//
 //        InvoiceSummary summary = generator.calculateInvoiceSummary(rides);
 //        System.out.println(summary);
 
@@ -36,10 +36,10 @@ public class Main {
         InvoiceService invoiceService = new InvoiceService(rideRepository, invoiceGenerator);
 
         // Adding some test rides to the repository for different users
-        rideRepository.addRide("user1", new Ride(2.0, 5));
-        rideRepository.addRide("user1", new Ride(3.0, 10));
-        rideRepository.addRide("user2", new Ride(5.0, 15));
-        rideRepository.addRide("user2", new Ride(0.5, 3));
+        rideRepository.addRide("user1", new Ride(2.0, 5, CabInvoiceGenerator.RideType.NORMAL));
+        rideRepository.addRide("user1", new Ride(3.0, 10, CabInvoiceGenerator.RideType.PREMIUM));
+        rideRepository.addRide("user2", new Ride(5.0, 15, CabInvoiceGenerator.RideType.NORMAL));
+        rideRepository.addRide("user2", new Ride(0.5, 3, CabInvoiceGenerator.RideType.PREMIUM));
 
         System.out.println("Enter User ID to generate invoice:");
         String userId = sc.next();
