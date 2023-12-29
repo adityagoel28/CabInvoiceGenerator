@@ -18,4 +18,11 @@ public class CabInvoiceGenerator {
                 .mapToDouble(ride -> calculateFare(ride.getDistance(), ride.getTime()))
                 .sum();
     }
+
+    public InvoiceSummary calculateInvoiceSummary(List<Ride> rides) {
+        double totalFare = rides.stream()
+                .mapToDouble(ride -> calculateFare(ride.getDistance(), ride.getTime()))
+                .sum();
+        return new InvoiceSummary(rides.size(), totalFare);
+    }
 }

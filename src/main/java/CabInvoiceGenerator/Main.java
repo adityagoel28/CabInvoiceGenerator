@@ -27,5 +27,8 @@ public class Main {
 
         double totalFare = generator.calculateTotalFareForMultipleRides(rides);
         System.out.println("Total Fare for all rides: Rs. " + totalFare);
+
+        InvoiceSummary summary = generator.calculateInvoiceSummary(rides);
+        System.out.println(summary);
     }
 }
